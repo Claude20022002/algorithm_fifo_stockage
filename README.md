@@ -84,3 +84,32 @@ Les contributions sont les bienvenues ! N'hésitez pas à :
 ## Licence
 
 Ce projet est sous licence MIT.
+
+explication sur FIFO:
+Pourquoi [3, 1, 5] et pas [5, 1, 3] ?
+Parce que FIFO ne trie pas les cadres selon la dernière entrée, il maintient l’ordre chronologique d’arrivée, comme une file d’attente (queue).
+
+📦 À l’étape où 5 est inséré :
+Avant 5, la mémoire contient :
+
+Modifier
+[2, 3, 1] ← ordre d'arrivée
+2 est le plus ancien → il sort.
+
+On ajoute 5 à la fin → ça donne :
+
+Modifier
+[3, 1, 5]
+
+-   Ce sont bien les mêmes cadres, juste que le plus ancien sort (2), et le nouveau entre à la fin (5). On ne réorganise pas tout comme dans un tri !
+
+-   Pourquoi pas [5, 1, 3] ?
+    Car cela supposerait que l’on inverse l’ordre des cadres à chaque nouvelle entrée, ce qui n’est pas le comportement FIFO. FIFO suit l’ordre strict d’entrée en mémoire, pas une logique de pile ni de priorité visuelle.
+
+_Résumé :_
+FIFO Fonctionnement clé
+🔁 On enlève le plus ancien.
+➕ On ajoute le nouveau à la fin de la file.
+❌ On ne trie pas les cadres selon la page arrivée.
+
+Donc [3, 1, 5] est parfaitement correct si 2 était arrivé en premier, et donc remplacé en premier.
